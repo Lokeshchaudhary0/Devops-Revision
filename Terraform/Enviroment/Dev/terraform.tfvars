@@ -69,3 +69,36 @@ nic = {
     resource_group_name = "rg-loukesh"
   }
 }
+
+acr = {
+  acr1 = {
+    name                = "containerRegistryloukesh"
+    resource_group_name = "rg-loukesh"
+    location            = "westeurope"
+    sku                 = "Standard"
+    admin_enabled       = false
+    georeplications = {
+      location                = "westeurope"
+      zone_redundancy_enabled = true
+      tags                    = {}
+    }
+  }
+}
+aks = {
+  aks1 = {
+    name                = "azure-aks"
+    resource_group_name = "rg-loukesh"
+    location            = "westeurope"
+    default_node_pool = {
+      name       = "default"
+      node_count = 1
+      vm_size    = "Standard_D2s_v3"
+    }
+    identity = {
+      type = "SystemAssigned"
+    }
+    tags = {
+      Environment = "Production"
+    }
+  }
+}

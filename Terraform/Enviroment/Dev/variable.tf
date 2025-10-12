@@ -4,3 +4,5 @@ variable "subnet" {}
 variable "storage" {}
 variable "vms" {}
 variable "nic" {}
+variable "acr" {}
+variable "aks" {}
