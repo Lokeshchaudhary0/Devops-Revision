@@ -1,7 +1,7 @@
 rgs = {
   rg1 = {
     name     = "rg-loukesh"
-    location = "westeurope"
+    location = "centralindia"
   }
 }
 
@@ -9,7 +9,7 @@ vnet = {
   vnet1 = {
     name                = "loukeshvnet"
     resource_group_name = "rg-loukesh"
-    location            = "westeurope"
+    location            = "centralindia"
     address_space       = ["10.0.0.0/16"]
   }
 }
@@ -32,7 +32,7 @@ subnet = {
 storage = {
   stoarge1 = {
     name                     = "staoragebeta"
-    location                 = "westeurope"
+    location                 = "centralindia"
     resource_group_name      = "rg-loukesh"
     account_replication_type = "LRS"
   }
@@ -43,7 +43,7 @@ vms = {
     virtual_network_name = "loukeshvnet"
     resource_group_name  = "rg-loukesh"
     nic_name             = "vm1-nic"
-    location             = "westeurope"
+    location             = "centralindia"
     vm_name              = "loukeshvm1"
     size                 = "Standard_F2"
   }
@@ -52,7 +52,7 @@ vms = {
     virtual_network_name = "loukeshvnet"
     resource_group_name  = "rg-loukesh"
     nic_name             = "vm2-nic"
-    location             = "westeurope"
+    location             = "centralindia"
     vm_name              = "loukeshvm"
     size                 = "Standard_F2"
   }
@@ -60,12 +60,12 @@ vms = {
 nic = {
   nic1 = {
     name                = "vm1-nic"
-    location            = "westeurope"
+    location            = "centralindia"
     resource_group_name = "rg-loukesh"
   }
   nic2 = {
     name                = "vm2-nic"
-    location            = "westeurope"
+    location            = "centralindia"
     resource_group_name = "rg-loukesh"
   }
 }
@@ -74,11 +74,11 @@ acr = {
   acr1 = {
     name                = "containerRegistryloukesh"
     resource_group_name = "rg-loukesh"
-    location            = "westeurope"
+    location            = "centralindia"
     sku                 = "Standard"
     admin_enabled       = false
     georeplications = {
-      location                = "westeurope"
+      location                = "centralindia"
       zone_redundancy_enabled = true
       tags                    = {}
     }
@@ -88,7 +88,7 @@ aks = {
   aks1 = {
     name                = "azure-aks"
     resource_group_name = "rg-loukesh"
-    location            = "westeurope"
+    location            = "centralindia"
     default_node_pool = {
       name       = "default"
       node_count = 1
