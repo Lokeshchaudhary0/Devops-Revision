@@ -109,7 +109,7 @@ sql_server = {
     resource_group_name          = "rg-loukesh"
     location                     = "centralindia"
     version                      = "12.0"
-    administrator_login          = "admin"
+    administrator_login          = "adminuser"
     administrator_login_password = "P@ssw0rd123"
   }
 }
