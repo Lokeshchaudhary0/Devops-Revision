@@ -19,7 +19,7 @@ resource "azurerm_sql_database" "db_server" {
   resource_group_name = each.value.resource_group_name
   location            = each.value.location
   server_name         = each.value.server_name
-  edition             = each.value.edition # Aapko jo edition chahiye, wo choose kar sakte hain.
+  edition             = each.value.edition
 
   tags = {
     environment = "Testing"
