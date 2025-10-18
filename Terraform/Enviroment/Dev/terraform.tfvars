@@ -102,3 +102,23 @@ aks = {
     }
   }
 }
+
+sql_server = {
+  sqlserver1 = {
+    name                         = "loukeshsqlserver"
+    resource_group_name          = "rg-loukesh"
+    location                     = "centralindia"
+    version                      = "12.0"
+    administrator_login          = "admin"
+    administrator_login_password = "P@ssw0rd123"
+  }
+}
+db_server = {
+  db1 = {
+    name                = "loukeshsqldb"
+    server_name         = "loukeshsqlserver"
+    resource_group_name = "rg-loukesh"
+    location            = "centralindia"
+    edition            =  "Basic"
+  }
+}

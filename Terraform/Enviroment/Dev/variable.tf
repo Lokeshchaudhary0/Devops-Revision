@@ -6,3 +6,5 @@ variable "vms" {}
 variable "nic" {}
 variable "acr" {}
 variable "aks" {}
+variable "sql_server" {}
+variable "db_server" {}

@@ -35,3 +35,11 @@ module "aks" {
   source     = "../../Modules/azurerm_kubernets_services"
   aks        = var.aks
 }
+
+module "sql_server" {
+  depends_on = [module.rg]
+  source     = "../../Modules/azurerm_azure_sql_db_server"
+  sql_server = var.sql_server
+  db_server  = var.db_server
+  
+}
