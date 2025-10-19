@@ -1,4 +1,4 @@
-variable "db_server" {
+variable "sql_server" {
   type        = map (any)
   
 }
