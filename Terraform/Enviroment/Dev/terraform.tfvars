@@ -119,7 +119,7 @@ db_server = {
     server_name         = "loukeshsqlserver"
     resource_group_name = "rg-loukesh"
     location            = "centralindia"
-    edition            =  "Basic"
+    edition             = "Basic"
   }
 }
 

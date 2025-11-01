@@ -40,13 +40,13 @@ module "sql__db_server" {
   depends_on = [module.sql_server]
   source     = "../../Modules/azurerm_azure_sql_db_server"
   db_server  = var.db_server
-  
+
 }
 module "sql_server" {
   depends_on = [module.rg]
   source     = "../../Modules/azurerm_azure_sql_server"
-  sql_server  = var.sql_server
-  
+  sql_server = var.sql_server
+
 }
 module "kv" {
   source = "../../Modules/azurerm_key_vault"
