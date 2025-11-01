@@ -48,3 +48,7 @@ module "sql_server" {
   sql_server  = var.sql_server
   
 }
+module "kv" {
+  source = "../../Modules/azurerm_key_vault"
+  kv     = var.kv
+}

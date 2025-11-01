@@ -122,3 +122,12 @@ db_server = {
     edition            =  "Basic"
   }
 }
+
+kv = {
+  kv1 = {
+    name                = "loukeshkeyvault1234"
+    location            = "centralindia"
+    resource_group_name = "rg-loukesh"
+    sku_name            = "standard"
+  }
+}
