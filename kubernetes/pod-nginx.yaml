@@ -13,6 +13,7 @@ spec:
       image: linuxserver/firefox
       ports:
         - containerPort: 3000
+        
 
 
 
