@@ -1,13 +1,18 @@
-resource "azurerm_sql_server" "sql_server" {
+resource "azurerm_mssql_server" "sql_server" {
   for_each = var.sql_server
-  name                         = each.value .name
+  name                         = each.value.name
   resource_group_name          = each.value.resource_group_name
   location                     = each.value.location
   version                      = each.value.version
   administrator_login          = each.value.administrator_login
-  administrator_login_password = each.value.administrator_login_password
+  administrator_login_password = each.value.administrator_login_password  
 
   tags = {
     environment = "Testing"
   }
 }
+
+output "sql_server_map" {
+  value = { for k, v in azurerm_mssql_server.sql_server : k => v.id }
+}
+

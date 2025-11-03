@@ -36,11 +36,12 @@ module "aks" {
   aks        = var.aks
 }
 
-module "sql__db_server" {
+module "db_server" {
   depends_on = [module.sql_server]
   source     = "../../Modules/azurerm_azure_sql_db_server"
+  sql_server_map = module.sql_server.sql_server_map
   db_server  = var.db_server
-  
+
 }
 module "sql_server" {
   depends_on = [module.rg]
@@ -51,4 +52,9 @@ module "sql_server" {
 module "kv" {
   source = "../../Modules/azurerm_key_vault"
   kv     = var.kv
+}
+resource "azurerm_role_assignment" "aks_acr_attach" {
+  principal_id         = module.aks.aks_principal_id["aks1"]
+  role_definition_name = "AcrPull"
+  scope                = module.acr.acr_id["acr1"]
 }

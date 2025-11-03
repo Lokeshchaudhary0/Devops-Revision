@@ -18,3 +18,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
   tags = each.value.tags
 }
+output "aks_principal_id" {
+  value = { for k, v in azurerm_kubernetes_cluster.aks : k => v.kubelet_identity[0].object_id }
+}

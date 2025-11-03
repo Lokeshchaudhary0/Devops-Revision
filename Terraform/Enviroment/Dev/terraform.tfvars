@@ -105,7 +105,7 @@ aks = {
 
 sql_server = {
   sqlserver1 = {
-    name                         = "loukeshsqlserver"
+    name                         = "sqlserver1"
     resource_group_name          = "rg-loukesh"
     location                     = "centralindia"
     version                      = "12.0"
@@ -116,10 +116,17 @@ sql_server = {
 db_server = {
   db1 = {
     name                = "loukeshsqldb"
-    server_name         = "loukeshsqlserver"
+    server_name         = "sqlserver1"
     resource_group_name = "rg-loukesh"
     location            = "centralindia"
     edition            =  "Basic"
+    collection = "SQL_Latin1_General_CP1_CI_AS"
+    sql_server_map           = "sqlserver1"
+    license_type      = "LicenseIncluded"
+    storage_account_type = "Local"
+    max_size_gb = 2
+    sku_name     = "S0"
+    enclave_type = "VBS"
   }
 }
 

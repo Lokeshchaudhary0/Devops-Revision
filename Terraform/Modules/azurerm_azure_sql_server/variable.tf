@@ -1,4 +1,3 @@
 variable "sql_server" {
-  type        = map (any)
-  
+  type = map (any)
 }
