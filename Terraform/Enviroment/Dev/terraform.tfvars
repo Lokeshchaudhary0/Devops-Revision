@@ -120,13 +120,6 @@ db_server = {
     resource_group_name = "rg-loukesh"
     location            = "centralindia"
     edition            =  "Basic"
-    collection = "SQL_Latin1_General_CP1_CI_AS"
-    sql_server_map           = "sqlserver1"
-    license_type      = "LicenseIncluded"
-    storage_account_type = "Local"
-    max_size_gb = 2
-    sku_name     = "S0"
-    enclave_type = "VBS"
   }
 }
 
