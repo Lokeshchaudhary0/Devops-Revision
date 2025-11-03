@@ -105,7 +105,7 @@ aks = {
 
 sql_server = {
   sqlserver1 = {
-    name                         = "sqlserver1"
+    name                         = "loukeshsqlserver1234"
     resource_group_name          = "rg-loukesh"
     location                     = "centralindia"
     version                      = "12.0"
