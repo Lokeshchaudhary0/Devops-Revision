@@ -60,7 +60,7 @@ jobs:
 
       - name: Terraform Plan
         working-directory: Terraform/Enviroment/Dev
-        run: terraform plan -out=tfplan
+        run: -input=false -migrate-state -lock=false -out=tfplan
 
       # - name: Terraform Apply
       #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
