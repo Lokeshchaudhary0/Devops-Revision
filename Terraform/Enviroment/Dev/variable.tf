@@ -6,9 +6,9 @@ variable "rgs" {
   type = map(any)
 }
 
-# variable "subnet" {
-#   type = map(any)
-# }
+variable "subnet" {
+  type = map(any)
+}
 
 variable "storage" {
   type = map(any)

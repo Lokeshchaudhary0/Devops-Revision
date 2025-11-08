@@ -14,21 +14,21 @@ vnet = {
   }
 }
 
-# subnet = {
-#   subnet1 = {
-#     name             = "frontend-subnet"
-#     rg_name          = "rg-loukesh"
-#     vnet_name        = "loukeshvnet"
-#     address_prefixes = ["10.0.1.0/24"]
-#   }
-#   subnet2 = {
-#     name             = "backend-subnet"
-#     rg_name          = "rg-loukesh"
-#     vnet_name        = "loukeshvnet"
-#     address_prefixes = ["10.0.2.0/24"]
-#   }
+subnet = {
+  subnet1 = {
+    name             = "frontend-subnet"
+    rg_name          = "rg-loukesh"
+    vnet_name        = "loukeshvnet"
+    address_prefixes = ["10.0.1.0/24"]
+  }
+  subnet2 = {
+    name             = "backend-subnet"
+    rg_name          = "rg-loukesh"
+    vnet_name        = "loukeshvnet"
+    address_prefixes = ["10.0.2.0/24"]
+  }
 
-# }
+}
 storage = {
   stoarge1 = {
     name                     = "staoragebeta"
