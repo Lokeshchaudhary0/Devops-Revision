@@ -24,6 +24,12 @@ module "vm" {
 
 }
 
+module "nic" {
+  depends_on = [module.virtual_network]
+  source     = "../../Modules/Network_Interface"
+  nic        = var.nic
+}
+
 module "acr" {
   depends_on = [module.rg]
   source     = "../../Modules/azurerm_acr"
