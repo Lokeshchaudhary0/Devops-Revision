@@ -3,7 +3,7 @@ variable "vnet" {
 }
 
 variable "rgs" {
-type = map(any)
+  type = map(any)
 }
 
 # variable "subnet" {
@@ -23,7 +23,7 @@ variable "nic" {
 }
 
 variable "acr" {
- type = map(any)
+  type = map(any)
 }
 
 variable "aks" {
