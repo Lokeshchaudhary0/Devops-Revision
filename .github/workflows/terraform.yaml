@@ -7,10 +7,10 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
-    env:
-      ARM_CLIENT_ID: 18f06224-72a9-43aa-9aa5-a62a7f166499
-      ARM_TENANT_ID: 0133099f-1aef-43e5-aff4-92411da359d0
-      ARM_SUBSCRIPTION_ID: 52dae8f1-4692-461c-8113-1a00e449ef11
+    # env:
+    #   ARM_CLIENT_ID: 18f06224-72a9-43aa-9aa5-a62a7f166499
+    #   ARM_TENANT_ID: 0133099f-1aef-43e5-aff4-92411da359d0
+    #   ARM_SUBSCRIPTION_ID: 52dae8f1-4692-461c-8113-1a00e449ef11
     
     steps:
       - name: Checkout code
