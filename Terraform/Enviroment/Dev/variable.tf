@@ -18,9 +18,9 @@ variable "vms" {
   type = map(any)
 }
 
-variable "nic" {
-  type = map(any)
-}
+# variable "nic" {
+#   type = map(any)
+# }
 
 variable "acr" {
   type = map(any)

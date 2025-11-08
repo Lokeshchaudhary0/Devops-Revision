@@ -57,18 +57,18 @@ vms = {
     size                 = "Standard_F2"
   }
 }
-nic = {
-  nic1 = {
-    name                = "vm1-nic"
-    location            = "centralindia"
-    resource_group_name = "rg-loukesh"
-  }
-  nic2 = {
-    name                = "vm2-nic"
-    location            = "centralindia"
-    resource_group_name = "rg-loukesh"
-  }
-}
+# nic = {
+#   nic1 = {
+#     name                = "vm1-nic"
+#     location            = "centralindia"
+#     resource_group_name = "rg-loukesh"
+#   }
+#   nic2 = {
+#     name                = "vm2-nic"
+#     location            = "centralindia"
+#     resource_group_name = "rg-loukesh"
+#   }
+# }
 
 acr = {
   acr1 = {
