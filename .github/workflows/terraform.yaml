@@ -22,11 +22,11 @@ jobs:
           terraform_version: 1.8.5
 
       - name: Terraform Init
-        working-directory: Terraform/environment/dev
+        working-directory: Terraform/Environment/Dev
         run: terraform init
 
       - name: Terraform Format Check
-        working-directory: Terraform/environment/dev
+        working-directory: Terraform/Environment/Dev
         run: terraform fmt -check
 
       - name: Install TFLint
@@ -34,15 +34,15 @@ jobs:
           curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 
       - name: Run TFLint
-        working-directory: Terraform/environment/dev
+        working-directory: Terraform/Environment/Dev
         run: tflint --init && tflint
 
       - name: Terraform Validate
-        working-directory: Terraform/environment/dev
+        working-directory: Terraform/Environment/Dev
         run: terraform validate
 
       - name: Terraform Plan
-        working-directory: Terraform/environment/dev
+        working-directory: Terraform/Environment/Dev
         run: terraform plan -out=tfplan
 
       # - name: Terraform Apply
