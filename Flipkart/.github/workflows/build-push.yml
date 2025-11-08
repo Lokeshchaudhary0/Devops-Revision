@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: todo-delete-tasks-api
+      IMAGE_NAME: flipkart
       IMAGE_TAG: v1
       ACR_NAME: containerRegistryloukesh
       ACR_LOGIN_SERVER: containerregistryloukesh.azurecr.io
