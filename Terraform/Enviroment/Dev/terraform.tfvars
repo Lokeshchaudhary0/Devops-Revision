@@ -115,16 +115,16 @@ sql_server = {
 }
 db_server = {
   db1 = {
-    name                = "loukeshsqldb"
-    server_name         = "sqlserver1"
-    resource_group_name = "rg-loukesh"
-    location            = "centralindia"
-    edition            =  "Basic"
-    collection        = "SQL_Latin1_General_CP1_CI_AS"
-    license_type       = "LicenseIncluded"
-    max_size_gb        = 2
-    sku_name          = "Basic"
-    enclave_type     = "Default"
+    name                 = "loukeshsqldb"
+    server_name          = "sqlserver1"
+    resource_group_name  = "rg-loukesh"
+    location             = "centralindia"
+    edition              = "Basic"
+    collection           = "SQL_Latin1_General_CP1_CI_AS"
+    license_type         = "LicenseIncluded"
+    max_size_gb          = 2
+    sku_name             = "Basic"
+    enclave_type         = "Default"
     storage_account_type = "Local"
 
   }
