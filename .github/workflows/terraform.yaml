@@ -1,0 +1,53 @@
+name: Terraform Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    env:
+      ARM_CLIENT_ID: 18f06224-72a9-43aa-9aa5-a62a7f166499
+      ARM_TENANT_ID: 0133099f-1aef-43e5-aff4-92411da359d0
+      ARM_SUBSCRIPTION_ID: 52dae8f1-4692-461c-8113-1a00e449ef11
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.5
+
+      - name: Terraform Init
+        working-directory: Terraform/environment/dev
+        run: terraform init
+
+      - name: Terraform Format Check
+        working-directory: Terraform/environment/dev
+        run: terraform fmt -check
+
+      - name: Install TFLint
+        run: |
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+      - name: Run TFLint
+        working-directory: Terraform/environment/dev
+        run: tflint --init && tflint
+
+      - name: Terraform Validate
+        working-directory: Terraform/environment/dev
+        run: terraform validate
+
+      - name: Terraform Plan
+        working-directory: Terraform/environment/dev
+        run: terraform plan -out=tfplan
+
+      # - name: Terraform Apply
+      #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      #   working-directory: Terraform/environment/dev
+      #   run: terraform apply -auto-approve tfplan
