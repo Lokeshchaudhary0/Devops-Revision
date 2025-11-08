@@ -39,7 +39,7 @@ jobs:
 
       - name: Terraform Init
         working-directory: Terraform/Enviroment/Dev
-        run: terraform init -input=false -migrate-state
+        run: terraform init -input=false -migrate-state -lock=false
 
 
       - name: Terraform Format Check
