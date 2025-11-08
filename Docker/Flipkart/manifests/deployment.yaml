@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flipkart-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flipkart
+  template:
+    metadata:
+      labels:
+        app: flipkart
+    spec:
+      containers:
+        - name: flipkart
+          image: containerregistryloukesh.azurecr.io/flipkart
+          ports:
+            - containerPort: 8080
+             
