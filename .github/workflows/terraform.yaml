@@ -1,7 +1,12 @@
 name: Terraform Pipeline
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - feature/**
 
 permissions:
   id-token: write
@@ -38,12 +43,12 @@ jobs:
           terraform_version: 1.8.5
 
       - name: Terraform Init
-        working-directory: Terraform/Enviroment/Dev
+        working-directory: Terraform/Enviroment/Prod
         run: terraform init -upgrade
 
 
       - name: Terraform Format Check
-        working-directory: Terraform/Enviroment/Dev
+        working-directory: Terraform/Enviroment/Prod
         run: terraform fmt -check
 
       - name: Install TFLint
@@ -51,15 +56,15 @@ jobs:
           curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 
       - name: Run TFLint
-        working-directory: Terraform/Enviroment/Dev
+        working-directory: Terraform/Enviroment/Prod
         run: tflint --init && tflint
 
       - name: Terraform Validate
-        working-directory: Terraform/Enviroment/Dev
+        working-directory: Terraform/Enviroment/Prod
         run: terraform validate
 
       - name: Force Unlock State (if locked)
-        working-directory: Terraform/Enviroment/Dev
+        working-directory: Terraform/Enviroment/Prod
         continue-on-error: true
         run: |
          echo "🔓 Checking for Azure state lock..."
@@ -74,10 +79,10 @@ jobs:
          echo "✅ Unlock check complete."
 
       - name: Terraform Plan
-        working-directory: Terraform/Enviroment/Dev
+        working-directory: Terraform/Enviroment/Prod
         run: terraform plan -out=tfplan
 
       # - name: Terraform Apply
       #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      #   working-directory: Terraform/Enviroment/Dev
+      #   working-directory: Terraform/Enviroment/Prod
       #   run: terraform apply -auto-approve tfplan
