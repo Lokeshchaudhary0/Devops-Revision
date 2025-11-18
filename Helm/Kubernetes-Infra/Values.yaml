@@ -6,3 +6,4 @@ targetPort: 8080
 Release-Name: nginx-deployment
 Container-Name: nginx-container
 serviceName: my-helm-service
+protocol: TCP
