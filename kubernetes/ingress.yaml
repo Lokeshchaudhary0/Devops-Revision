@@ -1,0 +1,7 @@
+apiVersion:      networking.k8s.io/v1
+KIND:       Ingress
+metadata:
+  name: kube-ingress
+spec:
+  
+  
