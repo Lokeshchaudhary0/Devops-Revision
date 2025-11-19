@@ -1,5 +1,5 @@
 replicas: 2
-image: "nginx"
+image: "nginx:latest"
 containerPort: 80
 port: 80
 targetPort: 8080
