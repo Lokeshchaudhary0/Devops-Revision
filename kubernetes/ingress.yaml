@@ -1,7 +1,15 @@
-apiVersion:      networking.k8s.io/v1
-KIND:       Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: kube-ingress
 spec:
-  
-  
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kube-service
+            port:
+              number: 80
