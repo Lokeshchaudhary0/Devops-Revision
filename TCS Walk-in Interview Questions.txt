@@ -1,0 +1,58 @@
+TCS Walk-in Interview Questions:
+
+1. How u delivered the project
+2. What are your expertise 
+3. What challenges u faced 
+4. Then few technical questions as well
+1)Draw Multi regions infra
+2)draw terraform complete parent n child module structure 
+3) write terraform block with multi cloud
+4) how to deploy 100 vm 
+5) state file lock benefits, how do you findout state file is locked 
+6) how do you compare if someone modify any resource in azure with your current state 
+7) write infra pipeline from scratch 
+8) how many issue you encounter during pipeline maintenance 
+9) write docker file 
+10) kubernetes  architecture 
+11) terraform init
+12) locals
+Tell about your 
+Use of IIM tool.
+Drifth state
+How to code push in dev environment only
+CI CD end to end process.
+Terraform old version Mai code likha hai but new version Mai Ker deya than code will be run or not. 
+what type of acces u have in your organization.
+Agile and scrum
+Git branching
+1.Kubernetes architecture 
+2.Difference  between git and git hub action 
+3.RBAC
+4.Azure key valut
+5.multiple vms deployment
+1.if backend deleted from remote how you will recover 
+2.what us logic app
+3.azure services 
+4.securty tool like and how you will integrate 
+5.what is ssh offloading 
+6.what is service principle and manged identity 
+7.how you will configuration one vnet to other vnet 
+8.what is main difference b/w front door and application gateway
+9.if application not run after some changes how you will troboshoot
+10.what you will sent notification Mail to the third party app when any changes done or pipeline fail or pass
+11.what is rbac scenario based 
+12.where we use gateway in vnet
+13 .what is difference bw firewall and nsg
+1. If backend delete, then how to recover that
+2. Advantages Self hosted agent.
+3. How to create manage identity.
+4. If New project are starting for terraform, how to configure Azure board with azure devops.
+5. Rbac policy explain in details
+tell me about your project?
+Do you use scripting during resource deployment?
+If multiple software are installed on a vm, write a script for re-installing them on new instance during deployment?
+Create custom image from an existing VM using terraform/ write a code?
+Running QA environment ko Production me replica kaise shift karen if Terraform state file not available?
+On how many Azure components have you worked using Terraform?
+Difference between implicit and explicit dependencies?
+tell us about Blue-Green Deployment?
