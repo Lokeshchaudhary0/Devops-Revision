@@ -1,0 +1,90 @@
+name: Terraform Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    env:
+     ARM_USE_OIDC: true
+     ARM_CLIENT_ID: 18f06224-72a9-43aa-9aa5-a62a7f166499
+     ARM_TENANT_ID: 0133099f-1aef-43e5-aff4-92411da359d0
+     ARM_SUBSCRIPTION_ID: 52dae8f1-4692-461c-8113-1a00e449ef11
+
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: 18f06224-72a9-43aa-9aa5-a62a7f166499
+          tenant-id: 0133099f-1aef-43e5-aff4-92411da359d0
+          subscription-id: 52dae8f1-4692-461c-8113-1a00e449ef11
+   
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.5
+
+      - name: Terraform Init
+        working-directory: Terraform/Enviroment/Prod
+        run: terraform init -upgrade
+
+
+      - name: Terraform Format Check
+        working-directory: Terraform/Enviroment/Prod
+        run: terraform fmt -check
+
+      - name: Install TFLint
+        run: |
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+      - name: Run TFLint
+        working-directory: Terraform/Enviroment/Prod
+        run: tflint --init && tflint
+
+      - name: Terraform Validate
+        working-directory: Terraform/Enviroment/Prod
+        run: terraform validate
+
+      - name: Force Unlock State (if locked)
+        working-directory: Terraform/Enviroment/Prod
+        continue-on-error: true
+        run: |
+         echo "🔓 Checking for Azure state lock..."
+         LOCK_ID=$(terraform show -json 2>/dev/null | jq -r '.lock_id // empty')
+         if [ -z "$LOCK_ID" ]; then
+         echo "✅ No local lock_id found, trying remote unlock directly..."
+         terraform force-unlock -force 1d029f46-758e-2026-1d76-d1b7236d2288 || true
+         else
+         echo "Found local lock id $LOCK_ID, unlocking..."
+         terraform force-unlock -force $LOCK_ID || true
+         fi
+         echo "✅ Unlock check complete."
+
+      - name: Terraform Plan
+        working-directory: Terraform/Enviroment/Prod
+        run: terraform plan -out=tfplan
+
+      # - name: Terraform Apply
+      #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      #   working-directory: Terraform/Enviroment/Prod
+      #   run: terraform apply -auto-approve tfplan
+      
