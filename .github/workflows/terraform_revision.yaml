@@ -1,0 +1,46 @@
+on:
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    
+    env:
+      ARM_USE_OIDC: true
+      ARM_CLIENT_ID: 18f06224-72a9-43aa-9aa5-a62a7f166499
+      ARM_TENANT_ID: 0133099f-1aef-43e5-aff4-92411da359d0
+      ARM_SUBSCRIPTION_ID: 52dae8f1-4692-461c-8113-1a00e449ef11    
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: 18f06224-72a9-43aa-9aa5-a62a7f166499
+          tenant-id: 0133099f-1aef-43e5-aff4-92411da359d0
+          subscription-id: 52dae8f1-4692-461c-8113-1a00e449ef11
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.5
+
+      - name: Terraform Init
+        working-directory: Terraform/Enviroment/Prod
+        run: terraform init -upgrade
+
+      - name: Terraform Plan
+        working-directory: Terraform/Enviroment/Prod
+        run: terraform plan -out=tfplan.binary
+
+      - name: Terraform Show Plan
+        working-directory: Terraform/Enviroment/Prod
+        run: terraform show -no-color tfplan.binary
