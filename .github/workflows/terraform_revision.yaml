@@ -48,7 +48,6 @@ jobs:
         working-directory: Terraform/Enviroment/Prod
         run: terraform validate
 
-
   plan:
     name: terraform-plan
     needs: validate
