@@ -12,6 +12,9 @@ resource "azurerm_key_vault" "kv" {
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault_secret" "keyvault_secret" {
+    depends_on = [
+    azurerm_key_vault_access_policy.kvs
+  ]
   name         = "my-secret"
   value        = "TerraformIsCool123"
   key_vault_id = azurerm_key_vault.kv["kv1"].id
@@ -22,6 +25,6 @@ resource "azurerm_key_vault_access_policy" "kvs" {
   tenant_id = data.azurerm_client_config.current.tenant_id
   object_id = data.azurerm_client_config.current.object_id
 
-  secret_permissions = ["Get", "List", "Set", "Delete"]
+  secret_permissions = ["Get", "List", "Set", "Delete","Purge"]
 
 }
