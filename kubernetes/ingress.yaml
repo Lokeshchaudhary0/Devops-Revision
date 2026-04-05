@@ -1,15 +1,32 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: kube-ingress
+  name: todo-ingress
+  namespace: default
 spec:
   rules:
   - http:
       paths:
-      - path: /
+      - path: /get
         pathType: Prefix
         backend:
           service:
-            name: kube-service
+            name: todo-get-task-api
+            port:
+              number: 80
+
+      - path: /add
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-add-tasks-api
+            port:
+              number: 80
+
+      - path: /delete
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-delete-tasks-api
             port:
               number: 80
