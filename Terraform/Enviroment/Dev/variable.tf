@@ -1,22 +1,22 @@
-variable "vnet" {
-  type = map(any)
-}
+# variable "vnet" {
+#   type = map(any)
+# }
 
 variable "rgs" {
   type = map(any)
 }
 
-variable "subnet" {
-  type = map(any)
-}
+# variable "subnet" {
+#   type = map(any)
+# }
 
 variable "storage" {
   type = map(any)
 }
 
-variable "vms" {
-  type = map(any)
-}
+# variable "vms" {
+#   type = map(any)
+# }
 
 # variable "nic" {
 #   type = map(any)
