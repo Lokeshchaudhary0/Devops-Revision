@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<USERNAME>/<REPO>.git
-    targetRevision: main
+    repoURL: https://github.com/Lokeshchaudhary0/Devops-Revision.git
+    targetRevision: master
     path: Helm/Kubernetes-Infra
     helm:
       valueFiles:
