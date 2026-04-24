@@ -1,4 +1,4 @@
-replicas: 2
+replicas: 4
 image: "nginx:latest"
 containerPort: 80
 port: 80
