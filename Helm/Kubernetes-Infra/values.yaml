@@ -2,7 +2,7 @@ replicas: 5
 image: "nginx:latest"
 containerPort: 80
 port: 80
-targetPort: 8080
+targetPort: 80
 Release-Name: nginx-deployment
 Container-Name: nginx-container
 serviceName: my-helm-service
