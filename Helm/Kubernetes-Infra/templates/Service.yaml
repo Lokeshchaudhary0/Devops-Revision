@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: {{ .Values.serviceName }}
 spec:
-  selector:
-  app: {{ .Release.Name }}
   type: NodePort
+  selector:
+    app: {{ .Release.Name }}
   ports:
-    - protocol: {{ .Values.protocol }}
-      port: {{ .Values.port }}
-      targetPort: {{ .Values.targetPort }}
+  - protocol: {{ .Values.protocol }}
+    port: {{ .Values.port }}
+    targetPort: {{ .Values.targetPort }}
