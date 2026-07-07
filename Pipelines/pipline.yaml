@@ -1,6 +1,9 @@
-trigger: none
+trigger: 
+- main
+
 stages:
-- stages: build
+- stage: build
+
   jobs:
   - job: BuildJob
 
